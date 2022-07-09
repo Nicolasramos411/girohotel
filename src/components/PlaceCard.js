@@ -10,9 +10,11 @@ import { Collapse } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    maxWidth: 645,
+    maxWidth: 430,
     background: "rgba(0, 0, 0, 0.5) !important",
-    margin: "20px"
+    margin: "40px",
+    boxShadow: "14px 17px 13px -9px rgba(0,0,0,0.8) !important",
+    borderRadius: "12px 12px 12px 12px !important",
   },
   cardTitle: {
     fontFamily: 'Nunito',
@@ -39,7 +41,7 @@ export default function PlaceCard({ cardImage, cardTitle, cardDescription, check
       <Card className={classes.root}>
         <CardMedia
           component="img"
-          height="440"
+          height="300"
           image={cardImage}
           alt="Cardalt"
         />
