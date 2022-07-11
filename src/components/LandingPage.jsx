@@ -3,6 +3,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import { CssBaseline } from '@mui/material';
 import Header from './Header';
 import Places from './PlaceToVisit';
+import MediaControlCard from './ContentBox';
+import { withRouter } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
 
@@ -11,6 +13,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundImage: `url(${process.env.PUBLIC_URL + '/assets/landing-page-image.jpg'})`,
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
+    padding: '10px',
   },
 
 }));
@@ -23,7 +26,8 @@ export default function LandingPage() {
       <CssBaseline />
       <Header />
       <Places />
-
+      <MediaControlCard />
+      
     </div>
   );
 }

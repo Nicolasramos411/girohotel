@@ -5,6 +5,9 @@ import { Collapse } from '@material-ui/core';
 import SortIcon from '@mui/icons-material/Sort';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { Link as Scroll } from 'react-scroll'
+import Slide from '@mui/material/Slide';
+import useScrollTrigger from '@mui/material/useScrollTrigger';
+import Button from '@mui/material/Button';
 
 const useStyles = makeStyles((theme) => ({
 
@@ -13,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
     alignItems: "center",
     height: "100vh",
-    fontFamily: 'Nunito',
+    fontFamily: 'Nunito !important',
   },
   appBar: {
     background: 'none',
@@ -46,7 +49,19 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 
-export default function Header() {
+function HideOnScroll( {children, window} ) {
+  const trigger = useScrollTrigger({
+    target: window ? window() : undefined,
+  });
+
+  return (
+    <Slide appear={false} direction="down" in={!trigger}>
+      {children}
+    </Slide>
+  );
+}
+
+export default function Header( {centerTitle, ...props} ) {
   const classes = useStyles();
   const [checked, SetChecked] = useState(false);
   useEffect(() => {
@@ -55,23 +70,33 @@ export default function Header() {
 
   return(
      <div className={classes.root} id="header">
-      <AppBar className={classes.appBar} elevation={0}>
-        <Toolbar className={classes.wrapper}>
-          <h1 className={classes.title}>Giro<span className={classes.spanTitle}>hotel.</span></h1>
-          <IconButton>
-            <SortIcon className={classes.icon} />
-          </IconButton>
-        </Toolbar>
-      </AppBar>
+      <HideOnScroll>
+        <AppBar className={classes.appBar} elevation={0}>
+          <Toolbar className={classes.wrapper}>
+            <h1 href="/" className={classes.title}>
+              Exa<span className={classes.spanTitle}>Nutri.</span>
+            </h1>
+            <IconButton>
+              <SortIcon className={classes.icon} />
+            </IconButton>
+          </Toolbar>
+        </AppBar>
+      </HideOnScroll>
       <Collapse
         in={checked}
         { ... (checked ? { timeout: 1000 } : {})}
         collapsedHeight={50}
       >
       <div className={classes.container}>
-        <h1 className={classes.middleTitle}>
-          Welcome to <br /> My <span className={classes.spanTitle}>Hotel.</span>
-        </h1>
+        {centerTitle ?
+          <h1 className={classes.middleTitle}>
+            Exa<span className={classes.spanTitle}>Nutri.</span>
+          </h1>
+          : 
+          <h1 className={classes.middleTitle}>
+            Bienvenido <br /> a Exa<span className={classes.spanTitle}>Nutri.</span>
+          </h1>
+        }
         <Scroll to="place-to-visit" smooth={true}>
           <IconButton>
             <ExpandMoreIcon className={classes.goDownIcon} />
