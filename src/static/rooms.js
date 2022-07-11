@@ -1,11 +1,11 @@
 const rooms = [
-  { title: "Deluxe Room",
-    description: "The Great Room is a room that is designed to be a place for you to relax and enjoy the outdoors. It is a great place to spend your time and have fun.",
-    image: process.env.PUBLIC_URL + '/assets/room-1.jpg'
+  { title: "Test de herencia",
+    description: "Este test permite conocer tu descendencia y tu ascendencia. Te ayudará a identificar tu tipo de persona y a saber qué tipo de persona eres. Podrás conocer de donde viene tu familia y de donde viene tu ascendencia.",
+    image: process.env.PUBLIC_URL + '/assets/herencia.jpg'
   },
-  { title: "Premium Room",
-    description: "The Great Room is a room that is designed to be a place for you to relax and enjoy the outdoors. It is a great place to spend your time and have fun.",
-    image: process.env.PUBLIC_URL + '/assets/room-2.jpg'
+  { title: "Test de Nutrición",
+    description: "Este test permite conocer tu metabolismo y tus necesidades nutricionales. Podrás saber que macronutrientes son los más importantes para tu cuerpo y que alimentos deberías dejar de consumir para prevenir enfermedades y alergias.",
+    image: process.env.PUBLIC_URL + '/assets/nutricion.jpg'
   },
 ];
 
